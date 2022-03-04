@@ -57,7 +57,20 @@ public class ConversorTemperatura {
 			if (this.tempDestino.equals("F"))
 				ret = this.temperatura * 9 / 5 + 32;
 			if (this.tempDestino.equals("K"))
-				ret = this.temperatura + 273;
+				ret = this.temperatura + 273.15;
+			break;
+		case "F":
+			if (this.tempDestino.equals("C"))
+				ret=( this.temperatura - 32 ) * 5 / 9;
+			if (this.tempDestino.equals("K"))
+				ret= ( this.temperatura - 32 ) * 5 / 9 + 273.15;
+			break;
+		case "K":
+			if (this.tempDestino.equals("C"))
+				ret = Math.round((this.temperatura - 273.15)*100)/100.00;
+			if (this.tempDestino.equals("F"))
+				ret = (this.temperatura - 273.15) * 9 / 5 + 32;
+			break;
 		}
 		
 		return ret;
